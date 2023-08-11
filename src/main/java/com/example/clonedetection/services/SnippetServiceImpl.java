@@ -10,6 +10,7 @@ import com.example.clonedetection.repositories.SnippetPairRepository;
 import com.example.clonedetection.repositories.SnippetRepository;
 import com.example.clonedetection.utils.Common;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -26,11 +27,17 @@ public class SnippetServiceImpl implements SnippetService {
 
     private final FileRepository fileRepository;
 
+    @Value("${github-personal-access-token:}")
+    private String token;
+
     @Override
     public GenerateSnippetsResponse generateRandom() {
         try {
             Map<String, String> datasetRepoHeaders = new HashMap<>();
-            datasetRepoHeaders.put("Authorization", "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");
+
+            if (!token.equals("")) {
+                datasetRepoHeaders.put("Authorization", token);
+            }
 
             String[] languages = new String[] {"dataset_c", "dataset_cpp"};
             int[][] range = new int[][] {new int[] {20, 99}, new int[] {1, 100}};

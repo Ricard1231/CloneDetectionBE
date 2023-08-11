@@ -18,7 +18,7 @@ public class Snippet {
     @GeneratedValue
     private Integer id;
     @NotBlank(message = "Code is mandatory")
-    @Length(max=11000)
+    @Length(max=15000)
     private String code;
     @ManyToOne
     @JoinColumn(
