@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 @RequiredArgsConstructor
 public class UserSnippetServiceImpl implements UserSnippetService{
@@ -27,6 +29,7 @@ public class UserSnippetServiceImpl implements UserSnippetService{
                         .user(user)
                         .snippetPair(pair)
                         .type(request.getResponse())
+                        .dateCreated(new Date())
                 .build()
         );
         return SaveResponseResponse.builder()

@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @Builder
 @Entity
@@ -40,4 +42,6 @@ public class UserSnippet {
 
     @NotNull(message = "Type is mandatory")
     private Integer type;
+
+    private Date dateCreated;
 }
