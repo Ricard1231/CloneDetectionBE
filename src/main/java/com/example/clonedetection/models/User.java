@@ -34,6 +34,8 @@ public class User implements UserDetails {
     private Double experience;
     @NotBlank(message = "Education is mandatory")
     private String education;
+    @NotNull(message = "isEngineering is mandatory")
+    private Boolean isEngineering;
 
     @Enumerated(EnumType.STRING)
     private Role role;

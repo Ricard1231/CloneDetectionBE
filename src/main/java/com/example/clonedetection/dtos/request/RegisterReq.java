@@ -23,4 +23,6 @@ public class RegisterReq {
     private Double experience;
     @NotBlank
     private String education;
+    @NotNull
+    private Boolean isEngineering;
 }

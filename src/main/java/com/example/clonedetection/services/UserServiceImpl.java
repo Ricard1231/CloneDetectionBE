@@ -56,6 +56,7 @@ public class UserServiceImpl implements UserService{
                 .password(passwordEncoder.encode(request.getPassword()))
                 .experience(request.getExperience())
                 .education(request.getEducation())
+                .isEngineering(request.getIsEngineering())
                 .role(Role.USER)
                 .build();
         userRepository.save(user);
